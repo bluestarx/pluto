@@ -36,3 +36,14 @@ ACK Frame {
 }
 ```
 Figure 25: ACK Frame Format
+
+
+When present, there are three ECN counts, as shown in Figure 27.
+```
+ECN Counts {
+  ECT0 Count (i),
+  ECT1 Count (i),
+  ECN-CE Count (i),
+}
+Figure 27: ECN Count Format
+```
