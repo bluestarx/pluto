@@ -21,3 +21,18 @@ when the packet has a packet number larger than the highest-numbered ack-eliciti
 Similarly, packets marked with the ECN Congestion Experienced (CE) codepoint in the IP header SHOULD be acknowledged immediately, to reduce the peer's response time to congestion events.
 
 The algorithms in [QUIC-RECOVERY] are expected to be resilient to receivers that do not follow the guidance offered above. However, an implementation should only deviate from these requirements after careful consideration of the performance implications of a change, for connections made by the endpoint and for other users of the network.
+
+ACK frames are formatted as shown in Figure 25.
+
+```
+ACK Frame {
+  Type (i) = 0x02..0x03,
+  Largest Acknowledged (i),
+  ACK Delay (i),
+  ACK Range Count (i),
+  First ACK Range (i),
+  ACK Range (..) ...,
+  [ECN Counts (..)],
+}
+```
+Figure 25: ACK Frame Format
